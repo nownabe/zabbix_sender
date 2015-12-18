@@ -1,6 +1,8 @@
 # ZabbixSender
 Zabbix Sender gem
 
+[![Gem Version](https://badge.fury.io/rb/zabbix_sender.svg)](https://badge.fury.io/rb/zabbix_sender)
+
 ## Installation
 
 Add this line to your application's Gemfile:
