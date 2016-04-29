@@ -17,7 +17,7 @@ module ZabbixSender
         socket = TCPSocket.new(zabbix_host, zabbix_port)
         request.send(socket)
       ensure
-        socket.close
+        socket.close if socket
       end
     end
 
