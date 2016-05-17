@@ -24,12 +24,14 @@ module ZabbixSender
 
     def send(socket)
       socket.write(encoded_data)
-      @raw_response = socket.gets
+      @raw_header = socket.read(HEADER.bytesize + 8)
+      datalen = @raw_header[HEADER.bytesize, 8].unpack("Q")[0]
+      @raw_response = socket.read(datalen)
       response
     end
 
     def response
-      @response ||= JSON.parse(@raw_response[13..-1])
+      @response ||= JSON.parse(@raw_response)
     end
 
     private
