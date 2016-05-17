@@ -23,7 +23,7 @@ module ZabbixSender
     end
 
     def send(socket)
-      socket.puts(encoded_data)
+      socket.write(encoded_data)
       @raw_response = socket.gets
       response
     end
