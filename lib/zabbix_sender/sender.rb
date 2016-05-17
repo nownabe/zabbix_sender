@@ -20,11 +20,5 @@ module ZabbixSender
         socket.close if socket
       end
     end
-
-    private
-
-    def decode(raw_data)
-      JSON.parse(raw_data[13..-1])
-    end
   end
 end
