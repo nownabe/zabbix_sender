@@ -1,12 +1,12 @@
 require "socket"
 
-require "zabbix_sender/request"
+require "zabbix_sender_legacy/request"
 
-module ZabbixSender
+module ZabbixSenderLegacy
   class Sender
     attr_reader :zabbix_host, :zabbix_port
 
-    def initialize(zabbix_host: "127.0.0.1", zabbix_port: 10051)
+    def initialize(zabbix_host= "127.0.0.1", zabbix_port= 10051)
       @zabbix_host = zabbix_host
       @zabbix_port = zabbix_port
     end

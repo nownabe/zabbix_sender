@@ -1,0 +1,9 @@
+require 'zabbix_sender_legacy'
+
+identifier = 'UserProfileEventHistoryCount_Bin_0'
+value = 17579
+
+zabbixSender = ZabbixSenderLegacy.from_config
+#puts zabbixSender
+result = zabbixSender.post("localhost", identifier, value)
+puts "send command to zabbix #{identifier} => #{value.to_s}: #{result}"
