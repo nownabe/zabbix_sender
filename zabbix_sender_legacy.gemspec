@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.license       = "GPL-3.0"
   spec.version       = ZabbixSenderLegacy::VERSION
   spec.platform      = Gem::Platform::RUBY
-  spec.authors       = ["lehn-etracker"]
-  spec.email         = ["lehn@etracker.com"]
+  spec.authors       = ["lehn-etracker","jhenning-etracker"]
+  spec.email         = ["lehn@etracker.com","henning@etracker.com"]
 
   spec.summary       = %q{Zabbix Sender gem for ruby < 2.0}
   spec.description   = "Improved zabbix_sender gem just for legacy ruby < 2.0 like in Debian Wheezy"
