@@ -23,12 +23,13 @@ module ZabbixSenderLegacy
     private
 
     def parse_config(config_path)
-      unless /^ServerActive\s*=\s*(?<server>[\w\-:,\.\[\]]+)\s*$/ =~ File.read(config_path)
+      unless /^ServerActive\s*=\s*(?<host>[\w\-:,\.\[\]]+)\s*$/ =~ File.read(config_path)
         raise MissingServerActiveConfig, "Missing ServerActive config in #{config_path}"
-      end
-      host, port = server.split(":")
-      port ||= 10051
-      [host, port.to_i]
+      end 
+      unless /^ListenPort\s*=\s*(?<port>[0-9]+)\s*$/ =~ File.read(config_path)
+        raise MissingServerActiveConfig, "Missing ListenPort config in #{config_path}"
+      end 
+      [host!, port.to_i]
     end
   end
 end
