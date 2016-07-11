@@ -13,11 +13,11 @@ module ZabbixSenderLegacy
         raise MissingConfigFile, "Missing config file with #{config_path}"
       end
       host, port = parse_config(config_path)
-      Sender.new(zabbix_host: host, zabbix_port: port)
+      Sender.new(host, port)
     end
 
     def new(zabbix_host="127.0.0.1", zabbix_port=10051)
-      Sender.new(zabbix_host: zabbix_host, zabbix_port: zabbix_port)
+      Sender.new(zabbix_host, zabbix_port)
     end
 
     private
