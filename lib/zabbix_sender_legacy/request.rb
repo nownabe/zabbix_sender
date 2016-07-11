@@ -1,6 +1,6 @@
 require "json"
 
-module ZabbixSender
+module ZabbixSenderLegacy
   # Zabbix Sender protocol:
   #
   # https://www.zabbix.org/wiki/Docs/protocols

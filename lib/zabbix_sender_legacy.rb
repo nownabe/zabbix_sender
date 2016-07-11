@@ -1,9 +1,9 @@
 require "json"
 require "socket"
 
-require "zabbix_sender/sender"
+require "zabbix_sender_legacy/sender"
 
-module ZabbixSender
+module ZabbixSenderLegacy
   MissingConfigFile = Class.new(StandardError)
   MissingServerActiveConfig = Class.new(StandardError)
 
@@ -13,11 +13,11 @@ module ZabbixSender
         raise MissingConfigFile, "Missing config file with #{config_path}"
       end
       host, port = parse_config(config_path)
-      Sender.new(zabbix_host: host, zabbix_port: port)
+      Sender.new(host, port)
     end
 
-    def new(zabbix_host: "127.0.0.1", zabbix_port: 10051)
-      Sender.new(zabbix_host: zabbix_host, zabbix_port: zabbix_port)
+    def new(zabbix_host="127.0.0.1", zabbix_port=10051)
+      Sender.new(zabbix_host, zabbix_port)
     end
 
     private
@@ -25,7 +25,7 @@ module ZabbixSender
     def parse_config(config_path)
       unless /^ServerActive\s*=\s*(?<server>[\w\-:,\.\[\]]+)\s*$/ =~ File.read(config_path)
         raise MissingServerActiveConfig, "Missing ServerActive config in #{config_path}"
-      end
+      end 
       host, port = server.split(":")
       port ||= 10051
       [host, port.to_i]
