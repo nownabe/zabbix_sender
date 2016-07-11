@@ -29,7 +29,7 @@ module ZabbixSenderLegacy
       unless /^ListenPort\s*=\s*(?<port>[0-9]+)\s*$/ =~ File.read(config_path)
         raise MissingServerActiveConfig, "Missing ListenPort config in #{config_path}"
       end 
-      [host!, port.to_i]
+      [host, port.to_i]
     end
   end
 end
