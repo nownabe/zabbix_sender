@@ -24,7 +24,7 @@ Or install it yourself as:
 ```ruby
 require "zabbix_sender"
 
-sender = ZabbixSender.new(zabbix_host: "some-zabbix", port: 10051)
+sender = ZabbixSender.new(zabbix_host: "some-zabbix", zabbix_port: 10051)
 sender.post("host", "key", "value")
 #=> {"response"=>"success", "info"=>"processed: 1; failed: 0; total: 1; seconds spent: 0.000075"}
 ```
