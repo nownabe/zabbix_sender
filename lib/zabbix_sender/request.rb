@@ -51,7 +51,7 @@ module ZabbixSender
     end
 
     def data_length
-      [data.size].pack("Q").force_encoding("UTF-8")
+      [data.bytesize].pack("Q").force_encoding("UTF-8")
     end
 
     def encoded_data
